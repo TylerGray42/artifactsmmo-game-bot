@@ -4,7 +4,7 @@
 1. Склонируйте репозиторий:
 
 ```bash
-git clone https://github.com/ваше_имя_пользователя/artifactsmmo-bot.git
+git clone https://github.com/TylerGray42/artifactsmmo-game-bot.git
 cd artifactsmmo-bot
 ```
 
