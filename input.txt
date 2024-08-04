@@ -1,0 +1,5 @@
+repeat 2
+    move 0 0
+    move 1 1
+end
+move 0 1
