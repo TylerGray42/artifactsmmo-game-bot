@@ -1,5 +1,6 @@
 from .character import Character
 
+
 class CommandParser:
     def __init__(self):
         self.commands = []
@@ -22,7 +23,7 @@ class CommandParser:
                         self.commands.append(command)
             else:
                 parts = line.split()
-                command = (parts[0], parts[1:])
+                command = (parts[0], parts[1:] if len(parts) > 1 else [])
                 if stack:
                     stack[-1][2].append(command)
                 else:
@@ -36,12 +37,21 @@ class CommandParser:
 
     def __execute_command(self, command: tuple, character: Character):
         cmd, args, *subcommands = command
-        if cmd == "move":
-            x, y = map(int, args)
-            character.move(x, y)
-        elif cmd == "loop":
-            count = args
-            subcommands = subcommands[0]
-            for _ in range(count):
-                for subcommand in subcommands:
-                    self.__execute_command(subcommand, character)
+        match cmd:
+            case "move":
+                x, y = map(int, args)
+                character.move(x, y)
+            case "loop":
+                count = args
+                subcommands = subcommands[0]
+                for _ in range(count):
+                    for subcommand in subcommands:
+                        self.__execute_command(subcommand, character)
+            case "fight":
+                character.fight()
+            case "info":
+                character.get_info()
+            case "gathering":
+                character.gathering()
+            case _:
+                pass
