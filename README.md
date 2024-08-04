@@ -5,7 +5,7 @@
 
 ```bash
 git clone https://github.com/TylerGray42/artifactsmmo-game-bot.git
-cd artifactsmmo-bot
+cd artifactsmmo-game-bot
 ```
 
 2. Установите зависимости:
