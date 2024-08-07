@@ -52,6 +52,6 @@ class Character:
         self.__send_request("unequip", data)
 
 
-    def crafting(self, code:str):
-        data = {"code": code}
+    def crafting(self, code:str, quantity:int = 1):
+        data = {"code": code, "quantity": quantity}
         self.__send_request("crafting", data)

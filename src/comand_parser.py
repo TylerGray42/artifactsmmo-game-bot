@@ -61,6 +61,7 @@ class CommandParser:
                 character.unequip(slot)
             case "craft":
                 code = args[0]
-                character.crafting(code)
+                quantity = int(args[1]) if len(args) > 1 else 1
+                character.crafting(code, quantity)
             case _:
                 pass
