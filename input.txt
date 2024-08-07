@@ -1,3 +1,1 @@
-repeat 5
-    gathering
-end
+move 1 2

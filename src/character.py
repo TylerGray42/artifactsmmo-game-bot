@@ -40,3 +40,18 @@ class Character:
 
     def gathering(self):
         self.__send_request("gathering")
+
+
+    def equip(self, code:str, slot:str):
+        data = {"code": code, "slot": slot}
+        self.__send_request("equip", data)
+
+
+    def unequip(self, slot:str):
+        data = {"slot": slot}
+        self.__send_request("unequip", data)
+
+
+    def crafting(self, code:str):
+        data = {"code": code}
+        self.__send_request("crafting", data)

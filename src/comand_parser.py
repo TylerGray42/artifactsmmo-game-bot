@@ -53,5 +53,14 @@ class CommandParser:
                 character.get_info()
             case "gathering":
                 character.gathering()
+            case "equip":
+                code, slot = args
+                character.equip(code, slot)
+            case "unequip":
+                slot = args[0]
+                character.unequip(slot)
+            case "craft":
+                code = args[0]
+                character.crafting(code)
             case _:
                 pass
