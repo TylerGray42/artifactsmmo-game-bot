@@ -21,6 +21,8 @@ class CommandParser:
                         stack[-1][2].append(command)
                     else:
                         self.commands.append(command)
+            elif line.startswith("#") or not line:
+                continue
             else:
                 parts = line.split()
                 command = (parts[0], parts[1:] if len(parts) > 1 else [])

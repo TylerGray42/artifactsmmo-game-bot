@@ -19,7 +19,12 @@ class Character:
 
     def __send_request(self, action:str, data=None):
         url = self.server + "/my/" + self.name + "/action/" + action
-        response = requests.post(url, headers=self.headers, json=data).json()
+        response = requests.post(url, headers=self.headers, json=data)
+        try:
+            response = response.json()
+        except:
+            print(f"\n\n\n{response}\n\n")
+            return
         self.response_handler.handle_response(action, response)
 
 

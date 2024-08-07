@@ -1,1 +1,16 @@
-move 1 2
+# repeat 2
+#     move -1 0
+#     repeat 46
+#         gathering
+#     end
+#     move -2 -3
+#     craft ash_plank 6
+#     move 2 1
+#     craft wooden_stick 2
+#     craft wooden_staff 2
+# end
+
+move 4 2
+repeat 100
+    gathering
+end
