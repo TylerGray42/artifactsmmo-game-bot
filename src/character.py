@@ -28,10 +28,39 @@ class Character:
         self.response_handler.handle_response(action, response)
 
 
-    def get_info(self):
+    def __send_user_request(self, action:str):
         url = self.server + "/characters/" + self.name
-        response = requests.get(url, headers=self.headers).json()
-        print(response)
+        response = requests.get(url, headers=self.headers)
+        try:
+            response = response.json()
+        except:
+            print(f"\n\n\n{response}\n\n")
+            return
+        self.response_handler.handle_response(action, response)
+
+
+    def info(self):
+        self.__send_user_request("character_info")
+
+
+    def skills(self):
+        self.__send_user_request("skills")
+
+
+    def stats(self):
+        self.__send_user_request("stats")
+
+
+    def equipment(self):
+        self.__send_user_request("equipment")
+
+
+    def task(self):
+        self.__send_user_request("task")
+
+
+    def inventory(self):
+        self.__send_user_request("inventory")
 
 
     def move(self, x:int, y:int):

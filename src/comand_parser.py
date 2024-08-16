@@ -51,8 +51,6 @@ class CommandParser:
                         self.__execute_command(subcommand, character)
             case "fight":
                 character.fight()
-            case "info":
-                character.get_info()
             case "gathering":
                 character.gathering()
             case "equip":
@@ -65,5 +63,18 @@ class CommandParser:
                 code = args[0]
                 quantity = int(args[1]) if len(args) > 1 else 1
                 character.crafting(code, quantity)
+            case "character":
+                if args[0] == "info":
+                    character.info()
+                elif args[0] == "skills":
+                    character.skills()
+                elif args[0] == "stats":
+                    character.stats()
+                elif args[0] == "equipment":
+                    character.equipment()
+                elif args[0] == "task":
+                    character.task()
+                elif args[0] == "inventory":
+                    character.inventory()
             case _:
                 pass
